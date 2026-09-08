@@ -1,0 +1,237 @@
+{
+  "schema_version": "0.8",
+  "project_id": "cc337cda-ed00-492f-84f3-ba85342b1837",
+  "project_name": "Puna Renewable Energy Project",
+  "project_description": "Example geothermal development project located in Hawaii County, Hawaii. This file is intended for frontend testing.",
+  "project_sponsor": "Puna Renewable Energy Project Energy LLC",
+  "project_sector": "energy",
+  "project_type": "geothermal",
+  "kgra_name": "Puna Renewable Energy Project Known Geothermal Resource Area",
+  "location": {
+    "state": "Hawaii",
+    "county": "Hawaii County",
+    "township_range": "T9S R15E",
+    "state_fips": null,
+    "county_fips": null
+  },
+  "well_numbers": [
+    "7-A",
+    "7-B",
+    "7-C"
+  ],
+  "facilities": [
+    {
+      "facility_id": "e94d5726-d93c-46b5-bcd5-dc3683d4e600",
+      "facility_name": "Puna Renewable Energy Project Unit 1",
+      "latitude": 41.615,
+      "longitude": -109.615,
+      "owner": "Puna Renewable Energy Project Energy LLC",
+      "operator": "Puna Renewable Energy Project Operations LLC",
+      "start_year": 2017,
+      "unit_capacity_mw": 38,
+      "technology_type": "Dry Steam"
+    },
+    {
+      "facility_id": "d583b6ae-0ef2-4087-b5fd-588b880b7495",
+      "facility_name": "Puna Renewable Energy Project Unit 2",
+      "latitude": 41.63,
+      "longitude": -109.63,
+      "owner": "Puna Renewable Energy Project Energy LLC",
+      "operator": "Puna Renewable Energy Project Operations LLC",
+      "start_year": 2018,
+      "unit_capacity_mw": 43,
+      "technology_type": "Enhanced Geothermal System (EGS)"
+    }
+  ],
+  "activity_groups": {
+    "leasing": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "leasing",
+          "process_map_phase": "Leasing",
+          "activity_type": "Leasing Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 7,
+          "document": {
+            "document_uuid": "3972996a-9bc7-5681-872d-084ed1dc23f7",
+            "document_title": "Leasing Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2022-07-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "surface_exploration": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "surface_exploration",
+          "process_map_phase": "Surface Exploration",
+          "activity_type": "Surface Exploration Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 7,
+          "summary": "Example status information for the surface exploration phase.",
+          "document": null
+        }
+      ]
+    },
+    "resource_confirmation": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "resource_confirmation",
+          "process_map_phase": "Resource Confirmation",
+          "activity_type": "Resource Confirmation Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 7,
+          "document": {
+            "document_uuid": "bf9560cc-f080-5ed7-936c-d5105d8ce107",
+            "document_title": "Resource Confirmation Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2022-07-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "utilization_well_development_subsurface": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "utilization_well_development_subsurface",
+          "process_map_phase": "Utilization Well Development Subsurface",
+          "activity_type": "Utilization Well Development Subsurface Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 7,
+          "summary": "Example status information for the utilization well development subsurface phase.",
+          "document": null
+        }
+      ]
+    },
+    "utilization_construction": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "utilization_construction",
+          "process_map_phase": "Utilization Construction",
+          "activity_type": "Utilization Construction Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 7,
+          "summary": "Example status information for the utilization construction phase.",
+          "document": null
+        }
+      ]
+    },
+    "production_well_development": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "production_well_development",
+          "process_map_phase": "Production Well Development",
+          "activity_type": "Production Well Development Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 7,
+          "document": {
+            "document_uuid": "2055e6f6-30fa-59fb-b344-933ea56519c9",
+            "document_title": "Production Well Development Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2022-07-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "transmission": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "transmission",
+          "process_map_phase": "Transmission",
+          "activity_type": "Transmission Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 7,
+          "document": {
+            "document_uuid": "d4e283cd-2bb7-586a-b700-59425e9735d6",
+            "document_title": "Transmission Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2022-07-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "safety_environmental": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "safety_environmental",
+          "process_map_phase": "Safety Environmental",
+          "activity_type": "Safety Environmental Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 7,
+          "summary": "Example status information for the safety environmental phase.",
+          "document": null
+        }
+      ]
+    },
+    "reclamation": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "reclamation",
+          "process_map_phase": "Reclamation",
+          "activity_type": "Reclamation Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 7,
+          "document": {
+            "document_uuid": "bba0338e-5e4f-5203-9c0d-bb62ed8c4ce0",
+            "document_title": "Reclamation Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2022-07-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    }
+  }
+}

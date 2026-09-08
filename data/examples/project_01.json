@@ -1,0 +1,219 @@
+{
+  "schema_version": "0.8",
+  "project_id": "9ca5e199-44bb-45ec-9332-2a73d126513c",
+  "project_name": "Coso Geothermal Field",
+  "project_description": "Example geothermal development project located in Inyo County, California. This file is intended for frontend testing.",
+  "project_sponsor": "Coso Geothermal Field Energy LLC",
+  "project_sector": "energy",
+  "project_type": "geothermal",
+  "kgra_name": "Coso Geothermal Field Known Geothermal Resource Area",
+  "location": {
+    "state": "California",
+    "county": "Inyo County",
+    "township_range": "T21S R37E",
+    "state_fips": null,
+    "county_fips": null
+  },
+  "well_numbers": [
+    "1-A",
+    "1-B",
+    "1-C"
+  ],
+  "facilities": [
+    {
+      "facility_id": "efa6ea05-ae7a-4447-9f8e-7dd3c2b9cf33",
+      "facility_name": "Coso Geothermal Field Unit 1",
+      "latitude": 35.015,
+      "longitude": -118.015,
+      "owner": "Coso Geothermal Field Energy LLC",
+      "operator": "Coso Geothermal Field Operations LLC",
+      "start_year": 2011,
+      "unit_capacity_mw": 20,
+      "technology_type": "Flash Steam"
+    },
+    {
+      "facility_id": "ef3439fa-1bc6-4e70-ad51-46d9276572af",
+      "facility_name": "Coso Geothermal Field Unit 2",
+      "latitude": 35.03,
+      "longitude": -118.03,
+      "owner": "Coso Geothermal Field Energy LLC",
+      "operator": "Coso Geothermal Field Operations LLC",
+      "start_year": 2012,
+      "unit_capacity_mw": 25,
+      "technology_type": "Dry Steam"
+    }
+  ],
+  "activity_groups": {
+    "leasing": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "leasing",
+          "process_map_phase": "Leasing",
+          "activity_type": "Leasing Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 1,
+          "document": {
+            "document_uuid": "7c84de8f-454a-59a7-b9ee-74c3517e8fad",
+            "document_title": "Leasing Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2021-01-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "surface_exploration": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "surface_exploration",
+          "process_map_phase": "Surface Exploration",
+          "activity_type": "Surface Exploration Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the surface exploration phase.",
+          "document": null
+        }
+      ]
+    },
+    "resource_confirmation": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "resource_confirmation",
+          "process_map_phase": "Resource Confirmation",
+          "activity_type": "Resource Confirmation Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the resource confirmation phase.",
+          "document": null
+        }
+      ]
+    },
+    "utilization_well_development_subsurface": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "utilization_well_development_subsurface",
+          "process_map_phase": "Utilization Well Development Subsurface",
+          "activity_type": "Utilization Well Development Subsurface Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the utilization well development subsurface phase.",
+          "document": null
+        }
+      ]
+    },
+    "utilization_construction": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "utilization_construction",
+          "process_map_phase": "Utilization Construction",
+          "activity_type": "Utilization Construction Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the utilization construction phase.",
+          "document": null
+        }
+      ]
+    },
+    "production_well_development": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "production_well_development",
+          "process_map_phase": "Production Well Development",
+          "activity_type": "Production Well Development Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 1,
+          "document": {
+            "document_uuid": "32efceea-2e08-54ac-ad4f-a424412b5033",
+            "document_title": "Production Well Development Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2021-01-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "transmission": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "transmission",
+          "process_map_phase": "Transmission",
+          "activity_type": "Transmission Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 1,
+          "document": {
+            "document_uuid": "aed56af9-9ac3-5d30-8b88-acce2f751921",
+            "document_title": "Transmission Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2021-01-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "safety_environmental": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "safety_environmental",
+          "process_map_phase": "Safety Environmental",
+          "activity_type": "Safety Environmental Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the safety environmental phase.",
+          "document": null
+        }
+      ]
+    },
+    "reclamation": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "reclamation",
+          "process_map_phase": "Reclamation",
+          "activity_type": "Reclamation Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 1,
+          "summary": "Example status information for the reclamation phase.",
+          "document": null
+        }
+      ]
+    }
+  }
+}

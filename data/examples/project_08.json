@@ -1,0 +1,219 @@
+{
+  "schema_version": "0.8",
+  "project_id": "584ca2a5-a02d-47f0-82dd-680a140aea1e",
+  "project_name": "Cascade Heat Project",
+  "project_description": "Example geothermal development project located in Klickitat County, Washington. This file is intended for frontend testing.",
+  "project_sponsor": "Cascade Heat Project Energy LLC",
+  "project_sector": "energy",
+  "project_type": "geothermal",
+  "kgra_name": "Cascade Heat Project Known Geothermal Resource Area",
+  "location": {
+    "state": "Washington",
+    "county": "Klickitat County",
+    "township_range": "T4N R14E",
+    "state_fips": null,
+    "county_fips": null
+  },
+  "well_numbers": [
+    "8-A",
+    "8-B",
+    "8-C"
+  ],
+  "facilities": [
+    {
+      "facility_id": "483c5e26-91fd-4af8-be46-19aa94f07d10",
+      "facility_name": "Cascade Heat Project Unit 1",
+      "latitude": 42.715,
+      "longitude": -108.215,
+      "owner": "Cascade Heat Project Energy LLC",
+      "operator": "Cascade Heat Project Operations LLC",
+      "start_year": 2018,
+      "unit_capacity_mw": 41,
+      "technology_type": "Enhanced Geothermal System (EGS)"
+    },
+    {
+      "facility_id": "99b0d46e-accc-4b9f-8c18-d9b8ed008c24",
+      "facility_name": "Cascade Heat Project Unit 2",
+      "latitude": 42.730000000000004,
+      "longitude": -108.23,
+      "owner": "Cascade Heat Project Energy LLC",
+      "operator": "Cascade Heat Project Operations LLC",
+      "start_year": 2019,
+      "unit_capacity_mw": 46,
+      "technology_type": "Hybrid"
+    }
+  ],
+  "activity_groups": {
+    "leasing": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "leasing",
+          "process_map_phase": "Leasing",
+          "activity_type": "Leasing Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the leasing phase.",
+          "document": null
+        }
+      ]
+    },
+    "surface_exploration": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "surface_exploration",
+          "process_map_phase": "Surface Exploration",
+          "activity_type": "Surface Exploration Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the surface exploration phase.",
+          "document": null
+        }
+      ]
+    },
+    "resource_confirmation": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "resource_confirmation",
+          "process_map_phase": "Resource Confirmation",
+          "activity_type": "Resource Confirmation Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 8,
+          "document": {
+            "document_uuid": "4e004754-cca7-5562-afc2-f60e97c0e23b",
+            "document_title": "Resource Confirmation Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2023-08-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "utilization_well_development_subsurface": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "utilization_well_development_subsurface",
+          "process_map_phase": "Utilization Well Development Subsurface",
+          "activity_type": "Utilization Well Development Subsurface Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the utilization well development subsurface phase.",
+          "document": null
+        }
+      ]
+    },
+    "utilization_construction": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "utilization_construction",
+          "process_map_phase": "Utilization Construction",
+          "activity_type": "Utilization Construction Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the utilization construction phase.",
+          "document": null
+        }
+      ]
+    },
+    "production_well_development": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "production_well_development",
+          "process_map_phase": "Production Well Development",
+          "activity_type": "Production Well Development Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the production well development phase.",
+          "document": null
+        }
+      ]
+    },
+    "transmission": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "transmission",
+          "process_map_phase": "Transmission",
+          "activity_type": "Transmission Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 8,
+          "summary": "Example status information for the transmission phase.",
+          "document": null
+        }
+      ]
+    },
+    "safety_environmental": {
+      "federal_unique_id": null,
+      "process_status": "in progress",
+      "activities": [
+        {
+          "activity_group": "safety_environmental",
+          "process_map_phase": "Safety Environmental",
+          "activity_type": "Safety Environmental Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 8,
+          "document": {
+            "document_uuid": "c9bfacc8-c70e-5a84-92f9-5cd5c3c27d24",
+            "document_title": "Safety Environmental Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2023-08-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "reclamation": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "reclamation",
+          "process_map_phase": "Reclamation",
+          "activity_type": "Reclamation Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 8,
+          "document": {
+            "document_uuid": "88b7738d-4ae8-52db-bdcb-5f05e2c9ec58",
+            "document_title": "Reclamation Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2023-08-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": "0.8",
+  "project_id": "bf702aa7-22aa-4711-9583-c9c441204116",
+  "project_name": "Beaver Basin Geothermal",
+  "project_description": "Example geothermal development project located in Beaver County, Utah. This file is intended for frontend testing.",
+  "project_sponsor": "Beaver Basin Geothermal Energy LLC",
+  "project_sector": "energy",
+  "project_type": "geothermal",
+  "kgra_name": "Beaver Basin Geothermal Known Geothermal Resource Area",
+  "location": {
+    "state": "Utah",
+    "county": "Beaver County",
+    "township_range": "T30S R8W",
+    "state_fips": null,
+    "county_fips": null
+  },
+  "well_numbers": [
+    "5-A",
+    "5-B",
+    "5-C"
+  ],
+  "facilities": [
+    {
+      "facility_id": "a0df61ce-758b-4161-aeb7-1c8402236d6c",
+      "facility_name": "Beaver Basin Geothermal Unit 1",
+      "latitude": 39.415,
+      "longitude": -112.415,
+      "owner": "Beaver Basin Geothermal Energy LLC",
+      "operator": "Beaver Basin Geothermal Operations LLC",
+      "start_year": 2015,
+      "unit_capacity_mw": 32,
+      "technology_type": "Binary Cycle"
+    },
+    {
+      "facility_id": "ed30f1e6-fe51-4051-8d87-c4599e1c3f76",
+      "facility_name": "Beaver Basin Geothermal Unit 2",
+      "latitude": 39.43,
+      "longitude": -112.43,
+      "owner": "Beaver Basin Geothermal Energy LLC",
+      "operator": "Beaver Basin Geothermal Operations LLC",
+      "start_year": 2016,
+      "unit_capacity_mw": 37,
+      "technology_type": "Flash Steam"
+    }
+  ],
+  "activity_groups": {
+    "leasing": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "leasing",
+          "process_map_phase": "Leasing",
+          "activity_type": "Leasing Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the leasing phase.",
+          "document": null
+        }
+      ]
+    },
+    "surface_exploration": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "surface_exploration",
+          "process_map_phase": "Surface Exploration",
+          "activity_type": "Surface Exploration Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 5,
+          "document": {
+            "document_uuid": "da90d840-6096-5b9a-8ed1-ba18fc0aa0c2",
+            "document_title": "Surface Exploration Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2025-05-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "resource_confirmation": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "resource_confirmation",
+          "process_map_phase": "Resource Confirmation",
+          "activity_type": "Resource Confirmation Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the resource confirmation phase.",
+          "document": null
+        }
+      ]
+    },
+    "utilization_well_development_subsurface": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "utilization_well_development_subsurface",
+          "process_map_phase": "Utilization Well Development Subsurface",
+          "activity_type": "Utilization Well Development Subsurface Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 5,
+          "document": {
+            "document_uuid": "94593357-2859-5dfb-b781-3fc643338907",
+            "document_title": "Utilization Well Development Subsurface Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2025-05-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "utilization_construction": {
+      "federal_unique_id": null,
+      "process_status": "completed",
+      "activities": [
+        {
+          "activity_group": "utilization_construction",
+          "process_map_phase": "Utilization Construction",
+          "activity_type": "Utilization Construction Authorization",
+          "level": "Federal",
+          "document_availability_flag": true,
+          "row_number": 5,
+          "document": {
+            "document_uuid": "3b2891f2-3111-53b5-a6e2-41326b413cab",
+            "document_title": "Utilization Construction Document",
+            "document_type": "EA",
+            "document_source": "Example dataset",
+            "prepared_by": "Example Geothermal Agency",
+            "publish_date": "2025-05-15",
+            "public_access": true,
+            "lead_agency": "Bureau of Land Management",
+            "kind": "url"
+          }
+        }
+      ]
+    },
+    "production_well_development": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "production_well_development",
+          "process_map_phase": "Production Well Development",
+          "activity_type": "Production Well Development Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the production well development phase.",
+          "document": null
+        }
+      ]
+    },
+    "transmission": {
+      "federal_unique_id": null,
+      "process_status": "pre-application",
+      "activities": [
+        {
+          "activity_group": "transmission",
+          "process_map_phase": "Transmission",
+          "activity_type": "Transmission Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the transmission phase.",
+          "document": null
+        }
+      ]
+    },
+    "safety_environmental": {
+      "federal_unique_id": null,
+      "process_status": "paused",
+      "activities": [
+        {
+          "activity_group": "safety_environmental",
+          "process_map_phase": "Safety Environmental",
+          "activity_type": "Safety Environmental Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the safety environmental phase.",
+          "document": null
+        }
+      ]
+    },
+    "reclamation": {
+      "federal_unique_id": null,
+      "process_status": "planned",
+      "activities": [
+        {
+          "activity_group": "reclamation",
+          "process_map_phase": "Reclamation",
+          "activity_type": "Reclamation Authorization",
+          "level": "Federal",
+          "document_availability_flag": false,
+          "row_number": 5,
+          "summary": "Example status information for the reclamation phase.",
+          "document": null
+        }
+      ]
+    }
+  }
+}
