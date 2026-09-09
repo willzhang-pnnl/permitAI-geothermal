@@ -195,6 +195,7 @@ def get_project(project_id: str):
                 id,
                 activity_type,
                 level,
+                process_map_phase,
                 document_availability_flag,
                 summary,
                 row_number

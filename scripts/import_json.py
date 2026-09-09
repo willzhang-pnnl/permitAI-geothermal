@@ -280,16 +280,18 @@ def import_project(connection, filepath: Path):
                     activity_group_id,
                     activity_type,
                     level,
+                    process_map_phase,
                     document_availability_flag,
                     summary,
                     row_number
                 )
-                VALUES (?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     activity_group_id,
                     activity.get("activity_type"),
                     activity.get("level"),
+                    activity.get("process_map_phase"),
                     int(document_available),
                     activity.get("summary"),
                     activity.get("row_number"),

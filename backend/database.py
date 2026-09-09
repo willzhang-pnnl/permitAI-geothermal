@@ -73,6 +73,7 @@ def create_tables():
             activity_group_id INTEGER NOT NULL,
             activity_type TEXT,
             level TEXT,
+            process_map_phase TEXT,
             document_availability_flag INTEGER,
             summary TEXT,
             row_number INTEGER,

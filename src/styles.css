@@ -547,6 +547,111 @@ h2 {
   min-height: 62px;
 }
 
+.lifecycle-row-clickable {
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+}
+
+.lifecycle-row-clickable:hover,
+.lifecycle-row-clickable:focus-visible {
+  background: #10242a;
+  outline: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(4, 10, 13, 0.65);
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 560px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid #1b343a;
+  border-radius: 15px;
+  background: #0c1c22;
+}
+
+.modal-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-heading > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border: 1px solid #1b343a;
+  border-radius: 8px;
+  background: transparent;
+  color: #a3adb0;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #10242a;
+  color: #d7e2e4;
+}
+
+.activity-list {
+  display: grid;
+  gap: 12px;
+}
+
+.activity-item {
+  padding: 13px;
+  border: 1px solid #1b343a;
+  border-radius: 10px;
+  background: #0a171c;
+}
+
+.activity-item-heading strong {
+  font-size: 13px;
+}
+
+.activity-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+  color: #70878e;
+  font-size: 11px;
+}
+
+.activity-item-summary {
+  margin-top: 8px;
+  color: #a3adb0;
+  font-size: 12px;
+}
+
+.activity-item-document {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #1b343a;
+  color: #599d98;
+  font-size: 11px;
+}
+
 .timeline-dot {
   z-index: 1;
   display: grid;
@@ -633,6 +738,18 @@ h2 {
   background: #0a171c;
 }
 
+.facility-item-clickable {
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.facility-item-clickable:hover,
+.facility-item-clickable:focus-visible {
+  border-color: #54bca5;
+  background: #10242a;
+  outline: none;
+}
+
 .facility-avatar,
 .document-icon {
   width: 36px;
@@ -716,6 +833,15 @@ h2 {
   color: #d7e9e8;
   font-size: 12px;
   text-align: right;
+}
+
+.facility-metadata-list {
+  gap: 12px;
+}
+
+.facility-metadata-list strong {
+  max-width: 65%;
+  overflow-wrap: anywhere;
 }
 
 .empty-state {
