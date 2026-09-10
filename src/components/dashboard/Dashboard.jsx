@@ -68,7 +68,7 @@ export default function Dashboard({
 
         <div>
           <Activity size={18} />
-          <span>Live FastAPI data</span>
+          <span>Bundled JSON data</span>
         </div>
       </div>
 

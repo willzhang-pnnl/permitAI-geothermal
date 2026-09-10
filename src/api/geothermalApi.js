@@ -1,54 +1,39 @@
-const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+const projectFiles = import.meta.glob("../../data/examples/*.json", {
+  eager: true,
+  import: "default",
+});
 
-async function apiRequest(path, options = {}) {
-  const response = await fetch(`${API_URL}${path}`, options);
-
-  if (!response.ok) {
-    let message = `Request failed with status ${response.status}`;
-
-    try {
-      const body = await response.json();
-      message = body.detail || message;
-    } catch {
-      // La respuesta no era JSON.
-    }
-
-    throw new Error(message);
-  }
-
-  return response.json();
-}
+const projects = Object.values(projectFiles).map((project) => ({
+  ...project,
+  state: project.location?.state || null,
+  county: project.location?.county || null,
+}));
 
 export async function fetchProjects({ search = "", state = "" } = {}) {
-  const params = new URLSearchParams();
+  const searchValue = search.trim().toLowerCase();
+  const stateValue = state.trim().toLowerCase();
 
-  if (search.trim()) {
-    params.set("search", search.trim());
-  }
+  return projects.filter((project) => {
+    const matchesSearch = !searchValue || [
+      project.project_name,
+      project.project_sponsor,
+      project.state,
+      project.county,
+    ].some((value) => String(value || "").toLowerCase().includes(searchValue));
 
-  if (state.trim()) {
-    params.set("state", state.trim());
-  }
+    const matchesState =
+      !stateValue || String(project.state || "").toLowerCase() === stateValue;
 
-  const query = params.toString();
-
-  return apiRequest(`/projects${query ? `?${query}` : ""}`);
+    return matchesSearch && matchesState;
+  });
 }
 
 export async function fetchProject(projectId) {
-  return apiRequest(`/projects/${encodeURIComponent(projectId)}`);
-}
+  const project = projects.find((item) => item.project_id === projectId);
 
-export async function uploadProjectFiles(files) {
-  const formData = new FormData();
+  if (!project) {
+    throw new Error("Project not found");
+  }
 
-  files.forEach((file) => {
-    formData.append("files", file);
-  });
-
-  return apiRequest("/import", {
-    method: "POST",
-    body: formData,
-  });
+  return project;
 }

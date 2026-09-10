@@ -7,7 +7,6 @@ import ProjectDetail from "./components/project/ProjectDetail";
 
 import { useProjects } from "./hooks/useProjects";
 import { useProject } from "./hooks/useProject";
-import { uploadProjectFiles } from "./api/geothermalApi";
 
 import "./styles.css";
 
@@ -15,14 +14,11 @@ export default function App() {
   const [currentView, setCurrentView] = useState("overview");
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [search, setSearch] = useState("");
-  const [uploading, setUploading] = useState(false);
-  const [uploadMessage, setUploadMessage] = useState("");
 
   const {
     projects,
     loading: projectsLoading,
     error: projectsError,
-    reload: reloadProjects,
   } = useProjects({
     search,
     state: "",
@@ -33,32 +29,6 @@ export default function App() {
     loading: projectLoading,
     error: projectError,
   } = useProject(selectedProjectId);
-
-  async function handleUpload(files) {
-    if (!files.length) return;
-
-    try {
-      setUploading(true);
-      setUploadMessage("");
-
-      const result = await uploadProjectFiles(files);
-
-      const importedCount = result.imported?.length || 0;
-      const failedCount = result.failed?.length || 0;
-
-      setUploadMessage(
-        `${importedCount} imported${
-          failedCount ? `, ${failedCount} failed` : ""
-        }`
-      );
-
-      await reloadProjects();
-    } catch (error) {
-      setUploadMessage(error.message || "Import failed");
-    } finally {
-      setUploading(false);
-    }
-  }
 
   function openProject(projectId) {
     setSelectedProjectId(projectId);
@@ -93,15 +63,7 @@ export default function App() {
               : "Project overview"
           }
           subtitle="GEOTHERMAL INTELLIGENCE"
-          onUpload={handleUpload}
-          uploading={uploading}
         />
-
-        {uploadMessage && (
-          <div className="toast-message">
-            {uploadMessage}
-          </div>
-        )}
 
         {isProjectDetail ? (
           <ProjectDetail
