@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "bf398410-2d01-4924-ba9c-be9341438bcd",
+  "project_id": "c960b7f1-5fa0-5dc9-93d0-7f307b77b4bb",
   "project_name": "San Francisco Volcanic Field",
   "project_description": "Example geothermal development project located in Coconino County, Arizona. This file is intended for frontend testing.",
   "project_sponsor": "San Francisco Volcanic Field Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "ee7dbcab-3ae7-4e9f-b255-f1e302b06cfc",
+      "facility_id": "1c164df0-c532-508f-9195-ff5beaae2937",
       "facility_name": "San Francisco Volcanic Field Unit 1",
       "latitude": 43.815,
       "longitude": -106.815,
@@ -32,7 +32,7 @@
       "technology_type": "Hybrid"
     },
     {
-      "facility_id": "a668f221-2d88-4659-88fa-ecd2ffb52aa6",
+      "facility_id": "4facebda-0972-5ea9-93ed-de94b5ff6452",
       "facility_name": "San Francisco Volcanic Field Unit 2",
       "latitude": 43.83,
       "longitude": -106.83,

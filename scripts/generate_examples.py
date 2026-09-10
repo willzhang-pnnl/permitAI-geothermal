@@ -109,7 +109,10 @@ def make_activity_group(project_index, group_name):
 
 def make_project(index):
     state, county, township_range = STATES[index]
-    project_id = str(uuid.uuid4())
+    project_id = str(uuid.uuid5(
+        uuid.NAMESPACE_URL,
+        f"geothermal-project-{index}"
+    ))
 
     latitude = 35.0 + index * 1.1
     longitude = -118.0 + index * 1.4
@@ -117,7 +120,10 @@ def make_project(index):
     facilities = []
 
     for facility_index in range(1, 3):
-        facility_id = str(uuid.uuid4())
+        facility_id = str(uuid.uuid5(
+            uuid.NAMESPACE_URL,
+            f"geothermal-facility-{index}-{facility_index}"
+        ))
 
         facilities.append({
             "facility_id": facility_id,

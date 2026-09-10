@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "08a65b7a-75ec-433b-aa0c-cc55a9cc5cc5",
+  "project_id": "1bbe57f2-f677-5951-96d5-b5af0a874738",
   "project_name": "Desert Peak Expansion",
   "project_description": "Example geothermal development project located in Washoe County, Nevada. This file is intended for frontend testing.",
   "project_sponsor": "Desert Peak Expansion Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "6b911ed2-6b30-4412-aa67-f229b0c71969",
+      "facility_id": "cdf11adc-1d93-592e-b08b-cc56adbd2998",
       "facility_name": "Desert Peak Expansion Unit 1",
       "latitude": 36.115,
       "longitude": -116.615,
@@ -32,7 +32,7 @@
       "technology_type": "Dry Steam"
     },
     {
-      "facility_id": "f778d1b8-53ee-48cf-83c0-5d8b5c474b2a",
+      "facility_id": "6a584d9f-aa1c-5ef7-864c-cb5c91b78096",
       "facility_name": "Desert Peak Expansion Unit 2",
       "latitude": 36.13,
       "longitude": -116.63,

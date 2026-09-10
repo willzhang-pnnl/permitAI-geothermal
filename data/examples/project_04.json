@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "6569d201-199e-4423-b060-9d95e19e458b",
+  "project_id": "bf0f61eb-e230-5273-b392-2e44537347ff",
   "project_name": "Lakeview Binary Plant",
   "project_description": "Example geothermal development project located in Lake County, Oregon. This file is intended for frontend testing.",
   "project_sponsor": "Lakeview Binary Plant Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "f5fcbff4-cbd6-4ac8-a7f6-1fa12d04ef3b",
+      "facility_id": "a0312a1b-e8bf-5f56-82f6-aff513080efc",
       "facility_name": "Lakeview Binary Plant Unit 1",
       "latitude": 38.315,
       "longitude": -113.815,
@@ -32,7 +32,7 @@
       "technology_type": "Hybrid"
     },
     {
-      "facility_id": "2ec9a2be-2856-492d-b76b-077d22c9074d",
+      "facility_id": "775c3726-cc78-514f-b796-b045d3bf3685",
       "facility_name": "Lakeview Binary Plant Unit 2",
       "latitude": 38.33,
       "longitude": -113.83,

@@ -17,6 +17,7 @@ export default function ProjectDetail({
   loading,
   error,
   onBack,
+  backLabel = "Back to projects",
 }) {
   if (loading) {
     return <LoadingState message="Loading project details..." />;
@@ -25,9 +26,9 @@ export default function ProjectDetail({
   if (error) {
     return (
       <>
-        <button className="back-button" onClick={onBack}>
-          <ArrowLeft size={17} />
-          Back to projects
+        <button type="button" className="back-button" onClick={onBack}>
+          <ArrowLeft size={17} aria-hidden="true" />
+          {backLabel}
         </button>
 
         <EmptyState
@@ -47,9 +48,9 @@ export default function ProjectDetail({
 
   return (
     <>
-      <button className="back-button" onClick={onBack}>
-        <ArrowLeft size={17} />
-        Back to projects
+      <button type="button" className="back-button" onClick={onBack}>
+        <ArrowLeft size={17} aria-hidden="true" />
+        {backLabel}
       </button>
 
       <div className="detail-hero">

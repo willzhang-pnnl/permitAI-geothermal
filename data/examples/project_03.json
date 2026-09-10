@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "e901db1b-e011-4922-a77b-56e91bf000ae",
+  "project_id": "869368fc-e0b4-5af0-b11f-5929a2c602fe",
   "project_name": "Snake River Geothermal Project",
   "project_description": "Example geothermal development project located in Blaine County, Idaho. This file is intended for frontend testing.",
   "project_sponsor": "Snake River Geothermal Project Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "ff5436c7-2107-4ec2-a2eb-b5dc5a291263",
+      "facility_id": "3d826e6a-e981-50e2-a90b-421a4d282cf7",
       "facility_name": "Snake River Geothermal Project Unit 1",
       "latitude": 37.215,
       "longitude": -115.215,
@@ -32,7 +32,7 @@
       "technology_type": "Enhanced Geothermal System (EGS)"
     },
     {
-      "facility_id": "ab664a59-39d6-4ab3-851c-3f4007fa25f9",
+      "facility_id": "3dcd2171-c592-51ac-a6d8-0916949ab5fb",
       "facility_name": "Snake River Geothermal Project Unit 2",
       "latitude": 37.230000000000004,
       "longitude": -115.23,

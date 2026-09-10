@@ -16,6 +16,15 @@ export default function Dashboard({
   error,
   search,
   onSearchChange,
+  stateFilter,
+  onStateFilterChange,
+  technologyFilter,
+  onTechnologyFilterChange,
+  sortBy,
+  onSortByChange,
+  states = [],
+  technologies = [],
+  onResetFilters,
   onSelectProject,
 }) {
   const totalCapacity = projects.reduce(
@@ -40,51 +49,71 @@ export default function Dashboard({
     <>
       <section className="overview-banner">
         <div>
-          <span className="banner-kicker">DATA OVERVIEW</span>
-          <h2>Geothermal development intelligence</h2>
+          <span className="banner-kicker">PROJECT DIRECTORY</span>
+          <h2>Geothermal Asset Portfolio</h2>
 
           <p>
-            Explore permitting progress, generation assets, and project
-            metadata across your geothermal portfolio.
+            Explore permitting phases, generation assets, and project
+            metadata across active geothermal developments.
           </p>
         </div>
 
         <div className="banner-number">
           <strong>{totalCapacity.toFixed(0)}</strong>
-          <span>MW tracked</span>
+          <span>MW in view</span>
         </div>
       </section>
 
       <div className="summary-strip">
         <div>
-          <FolderOpen size={18} />
-          <span>{projects.length} projects</span>
+          <FolderOpen size={18} aria-hidden="true" />
+          <span>{projects.length} matching projects</span>
         </div>
 
         <div>
-          <Zap size={18} />
+          <Zap size={18} aria-hidden="true" />
           <span>{totalCapacity.toFixed(0)} MW total capacity</span>
         </div>
 
         <div>
-          <Activity size={18} />
-          <span>Bundled JSON data</span>
+          <Activity size={18} aria-hidden="true" />
+          <span>Verified Registry Data</span>
         </div>
       </div>
 
       <SearchToolbar
         search={search}
         onSearchChange={onSearchChange}
+        stateFilter={stateFilter}
+        onStateFilterChange={onStateFilterChange}
+        technologyFilter={technologyFilter}
+        onTechnologyFilterChange={onTechnologyFilterChange}
+        sortBy={sortBy}
+        onSortByChange={onSortByChange}
+        states={states}
+        technologies={technologies}
         projectCount={projects.length}
+        onResetFilters={onResetFilters}
       />
 
       {projects.length === 0 ? (
-        <EmptyState
-          title="No projects match your search"
-          description="Try changing the search text or import additional JSON files."
-        />
+        <div className="empty-state-container">
+          <EmptyState
+            title="No projects match your criteria"
+            description="Try loosening your search terms or clearing active filters."
+          />
+          {(search || stateFilter || technologyFilter || sortBy !== "name") && (
+            <button
+              type="button"
+              className="clear-filters-action-btn"
+              onClick={onResetFilters}
+            >
+              Reset all filters
+            </button>
+          )}
+        </div>
       ) : (
-        <section className="project-grid">
+        <section className="project-grid" aria-label="Geothermal projects list">
           {projects.map((project) => (
             <ProjectCard
               key={project.project_id}

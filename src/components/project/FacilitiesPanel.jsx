@@ -1,28 +1,12 @@
 import { useState } from "react";
-import { Building2, Gauge, X } from "lucide-react";
+import { Building2, Gauge } from "lucide-react";
 import { getFacilities } from "../../utils/projectUtils";
 import EmptyState from "../common/EmptyState";
+import Modal from "../common/Modal";
 
 export default function FacilitiesPanel({ project }) {
   const [activeFacility, setActiveFacility] = useState(null);
   const facilities = getFacilities(project);
-
-  const formatLabel = (key) =>
-    key
-      .replaceAll("_", " ")
-      .replace(/\b\w/g, (letter) => letter.toUpperCase());
-
-  const formatValue = (value) => {
-    if (value === null || value === undefined || value === "") {
-      return "Not specified";
-    }
-
-    if (typeof value === "object") {
-      return JSON.stringify(value);
-    }
-
-    return String(value);
-  };
 
   return (
     <section className="panel">
@@ -32,7 +16,7 @@ export default function FacilitiesPanel({ project }) {
           <h2>Facilities</h2>
         </div>
 
-        <Building2 size={20} className="heading-icon" />
+        <Building2 size={20} className="heading-icon" aria-hidden="true" />
       </div>
 
       {facilities.length === 0 ? (
@@ -52,8 +36,9 @@ export default function FacilitiesPanel({ project }) {
                   setActiveFacility(facility);
                 }
               }}
+              aria-label={`View details for ${facility.facility_name || "facility"}`}
             >
-              <div className="facility-avatar">
+              <div className="facility-avatar" aria-hidden="true">
                 <Gauge size={19} />
               </div>
 
@@ -63,8 +48,7 @@ export default function FacilitiesPanel({ project }) {
                 </strong>
 
                 <span>
-                  {facility.technology_type ||
-                    "Technology not specified"}
+                  {facility.technology_type || "Technology not specified"}
                 </span>
               </div>
 
@@ -82,47 +66,49 @@ export default function FacilitiesPanel({ project }) {
         </div>
       )}
 
-      {activeFacility && (
-        <div
-          className="modal-overlay"
-          onClick={() => setActiveFacility(null)}
-        >
-          <div
-            className="modal-content"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="facility-details-title"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="modal-heading">
-              <div>
-                <p className="eyebrow">FACILITY DETAILS</p>
-                <h2 id="facility-details-title">
-                  {activeFacility.facility_name || "Unnamed Facility"}
-                </h2>
-              </div>
-
-              <button
-                type="button"
-                className="modal-close"
-                onClick={() => setActiveFacility(null)}
-                aria-label="Close facility details"
-              >
-                <X size={18} />
-              </button>
+      <Modal
+        isOpen={Boolean(activeFacility)}
+        onClose={() => setActiveFacility(null)}
+        title={activeFacility?.facility_name || "Unnamed Facility"}
+        eyebrow="FACILITY SPECIFICATIONS"
+      >
+        {activeFacility && (
+          <div className="metadata-list facility-metadata-list">
+            <div>
+              <span>Technology</span>
+              <strong>{activeFacility.technology_type || "Not specified"}</strong>
             </div>
-
-            <div className="metadata-list facility-metadata-list">
-              {Object.entries(activeFacility).map(([key, value]) => (
-                <div key={key}>
-                  <span>{formatLabel(key)}</span>
-                  <strong>{formatValue(value)}</strong>
-                </div>
-              ))}
+            <div>
+              <span>Unit Capacity</span>
+              <strong>{activeFacility.unit_capacity_mw ? `${activeFacility.unit_capacity_mw} MW` : "Not specified"}</strong>
+            </div>
+            <div>
+              <span>Commissioning / Start Year</span>
+              <strong>{activeFacility.start_year || "Not specified"}</strong>
+            </div>
+            <div>
+              <span>Owner</span>
+              <strong>{activeFacility.owner || "Not specified"}</strong>
+            </div>
+            <div>
+              <span>Operator</span>
+              <strong>{activeFacility.operator || "Not specified"}</strong>
+            </div>
+            <div>
+              <span>Coordinates</span>
+              <strong>
+                {activeFacility.latitude && activeFacility.longitude
+                  ? `${activeFacility.latitude.toFixed(4)}°, ${activeFacility.longitude.toFixed(4)}°`
+                  : "Not specified"}
+              </strong>
+            </div>
+            <div>
+              <span>Facility ID</span>
+              <strong className="code-font">{activeFacility.facility_id || "Not specified"}</strong>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </Modal>
     </section>
   );
 }

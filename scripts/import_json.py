@@ -322,6 +322,16 @@ def import_project(connection, filepath: Path):
                     kind
                 )
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(document_uuid) DO UPDATE SET
+                    activity_id = excluded.activity_id,
+                    document_title = excluded.document_title,
+                    document_type = excluded.document_type,
+                    document_source = excluded.document_source,
+                    prepared_by = excluded.prepared_by,
+                    publish_date = excluded.publish_date,
+                    public_access = excluded.public_access,
+                    lead_agency = excluded.lead_agency,
+                    kind = excluded.kind
                 """,
                 (
                     activity_id,

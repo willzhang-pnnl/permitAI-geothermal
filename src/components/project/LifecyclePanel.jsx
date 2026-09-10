@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Activity, FileText, X } from "lucide-react";
+import { Activity, FileText } from "lucide-react";
 import {
-  ACTIVITY_GROUPS,
   getActivityGroup,
+  getProjectActivityGroups,
   getStatus,
 } from "../../utils/projectUtils";
 import StatusPill from "../common/StatusPill";
+import Modal from "../common/Modal";
 
 export default function LifecyclePanel({ project }) {
   const [activeGroup, setActiveGroup] = useState(null);
 
+  const groups = getProjectActivityGroups(project);
   const activeGroupData = activeGroup
     ? getActivityGroup(project, activeGroup.key)
     : null;
@@ -26,11 +28,11 @@ export default function LifecyclePanel({ project }) {
           <h2>Development phases</h2>
         </div>
 
-        <Activity size={20} className="heading-icon" />
+        <Activity size={20} className="heading-icon" aria-hidden="true" />
       </div>
 
       <div className="lifecycle-list">
-        {ACTIVITY_GROUPS.map((group, index) => {
+        {groups.map((group, index) => {
           const status = getStatus(project, group.key);
           const groupData = getActivityGroup(project, group.key);
           const activities = groupData.activities || [];
@@ -53,6 +55,11 @@ export default function LifecyclePanel({ project }) {
                     }
                   : undefined
               }
+              aria-label={
+                clickable
+                  ? `View activities for ${group.label}`
+                  : undefined
+              }
             >
               <div className={`timeline-dot ${status}`}>
                 <span />
@@ -73,7 +80,7 @@ export default function LifecyclePanel({ project }) {
                 </div>
               </div>
 
-              {index < ACTIVITY_GROUPS.length - 1 && (
+              {index < groups.length - 1 && (
                 <div className="timeline-line" />
               )}
             </div>
@@ -81,72 +88,54 @@ export default function LifecyclePanel({ project }) {
         })}
       </div>
 
-      {activeGroup && (
-        <div
-          className="modal-overlay"
-          onClick={() => setActiveGroup(null)}
-        >
-          <div
-            className="modal-content"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="modal-heading">
-              <div>
-                <p className="eyebrow">{activeGroup.label}</p>
-                <h2>Activities</h2>
-              </div>
-
-              <StatusPill status={activeStatus} />
-
-              <button
-                type="button"
-                className="modal-close"
-                onClick={() => setActiveGroup(null)}
-                aria-label="Close"
-              >
-                <X size={18} />
-              </button>
-            </div>
-
-            <div className="activity-list">
-              {activeActivities.map((activity, index) => (
-                <div className="activity-item" key={index}>
-                  <div className="activity-item-heading">
-                    <strong>
-                      {activity.activity_type || "Untitled activity"}
-                    </strong>
-                  </div>
-
-                  <div className="activity-item-meta">
-                    <span>{activity.level || "Level unspecified"}</span>
-                    <span>
-                      {activity.process_map_phase || "Phase unspecified"}
-                    </span>
-                  </div>
-
-                  {activity.summary && (
-                    <p className="activity-item-summary">
-                      {activity.summary}
-                    </p>
-                  )}
-
-                  {activity.document_availability_flag &&
-                    activity.document && (
-                      <div className="activity-item-document">
-                        <FileText size={15} />
-                        <span>
-                          {activity.document.document_title ||
-                            "Untitled document"}{" "}
-                          · {activity.document.document_type || "Other"}
-                        </span>
-                      </div>
-                    )}
+      <Modal
+        isOpen={Boolean(activeGroup)}
+        onClose={() => setActiveGroup(null)}
+        title="Activities"
+        eyebrow={activeGroup?.label}
+        badge={<StatusPill status={activeStatus} />}
+      >
+        <div className="activity-list">
+          {activeActivities.length === 0 ? (
+            <p className="muted">No detailed activities recorded for this phase.</p>
+          ) : (
+            activeActivities.map((activity, index) => (
+              <div className="activity-item" key={index}>
+                <div className="activity-item-heading">
+                  <strong>
+                    {activity.activity_type || "Untitled activity"}
+                  </strong>
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <div className="activity-item-meta">
+                  <span>Level: {activity.level || "Unspecified"}</span>
+                  <span>
+                    Phase: {activity.process_map_phase || "Unspecified"}
+                  </span>
+                </div>
+
+                {activity.summary && (
+                  <p className="activity-item-summary">
+                    {activity.summary}
+                  </p>
+                )}
+
+                {activity.document_availability_flag &&
+                  activity.document && (
+                    <div className="activity-item-document">
+                      <FileText size={15} aria-hidden="true" />
+                      <span>
+                        {activity.document.document_title ||
+                          "Untitled document"}{" "}
+                        · {activity.document.document_type || "Other"}
+                      </span>
+                    </div>
+                  )}
+              </div>
+            ))
+          )}
         </div>
-      )}
+      </Modal>
     </section>
   );
 }

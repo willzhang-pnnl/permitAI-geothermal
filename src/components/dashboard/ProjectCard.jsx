@@ -1,8 +1,8 @@
 import {
-  Building2,
   ChevronRight,
   MapPin,
   Waves,
+  Zap,
 } from "lucide-react";
 
 import {
@@ -16,25 +16,43 @@ export default function ProjectCard({ project, onClick }) {
   const capacity = getTotalCapacity(project);
   const progress = getProjectProgress(project);
 
+  // Extract distinct technology types
+  const techTypes = Array.from(
+    new Set(
+      facilities
+        .map((f) => f.technology_type)
+        .filter(Boolean)
+    )
+  );
+
   return (
-    <button className="project-card" onClick={onClick}>
+    <button
+      type="button"
+      className="project-card"
+      onClick={onClick}
+      aria-label={`View details for ${project.project_name || "project"}`}
+    >
       <div className="project-card-top">
-        <div className="project-symbol">
+        <div className="project-symbol" aria-hidden="true">
           <Waves size={22} />
         </div>
 
-        <ChevronRight size={18} className="card-arrow" />
+        <div className="project-card-top-right">
+          {techTypes.length > 0 && (
+            <span className="tech-badge">{techTypes[0]}</span>
+          )}
+          <ChevronRight size={18} className="card-arrow" aria-hidden="true" />
+        </div>
       </div>
 
       <h3>{project.project_name || "Unnamed Project"}</h3>
 
       <p className="muted">
-        {project.project_description ||
-          "No project description available."}
+        {project.project_description || "No project description available."}
       </p>
 
       <div className="project-location">
-        <MapPin size={15} />
+        <MapPin size={15} aria-hidden="true" />
         <span>
           {project.county || "Unknown County"},{" "}
           {project.state || "Unknown State"}
@@ -46,7 +64,10 @@ export default function ProjectCard({ project, onClick }) {
       <div className="card-metrics">
         <div>
           <span>Capacity</span>
-          <strong>{capacity} MW</strong>
+          <strong>
+            <Zap size={13} className="inline-icon" aria-hidden="true" />
+            {capacity} MW
+          </strong>
         </div>
 
         <div>
@@ -60,7 +81,14 @@ export default function ProjectCard({ project, onClick }) {
         </div>
       </div>
 
-      <div className="progress-bar">
+      <div
+        className="progress-bar"
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label="Permitting progress"
+      >
         <div style={{ width: `${progress}%` }} />
       </div>
     </button>

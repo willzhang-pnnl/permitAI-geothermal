@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "9ca5e199-44bb-45ec-9332-2a73d126513c",
+  "project_id": "1e03fd7b-9c4b-5837-a0de-d562f8406e61",
   "project_name": "Coso Geothermal Field",
   "project_description": "Example geothermal development project located in Inyo County, California. This file is intended for frontend testing.",
   "project_sponsor": "Coso Geothermal Field Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "efa6ea05-ae7a-4447-9f8e-7dd3c2b9cf33",
+      "facility_id": "db6ce406-5986-5bb0-a3e5-6b30d53dffed",
       "facility_name": "Coso Geothermal Field Unit 1",
       "latitude": 35.015,
       "longitude": -118.015,
@@ -32,7 +32,7 @@
       "technology_type": "Flash Steam"
     },
     {
-      "facility_id": "ef3439fa-1bc6-4e70-ad51-46d9276572af",
+      "facility_id": "1d30ac23-8336-5bd3-8617-a204ac94ddd9",
       "facility_name": "Coso Geothermal Field Unit 2",
       "latitude": 35.03,
       "longitude": -118.03,

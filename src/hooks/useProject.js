@@ -8,40 +8,39 @@ export function useProject(projectId) {
 
   useEffect(() => {
     if (!projectId) {
-      setProject(null);
-      setLoading(false);
       return;
     }
 
-    const controller = new AbortController();
+    let ignore = false;
 
     async function loadProject() {
       try {
-        setLoading(true);
-        setError("");
-
-        const data = await fetchProject(projectId, {
-          signal: controller.signal,
-        });
-
-        setProject(data);
+        const data = await fetchProject(projectId);
+        if (!ignore) {
+          setProject(data);
+          setError("");
+        }
       } catch (requestError) {
-        if (requestError.name !== "AbortError") {
+        if (!ignore) {
           setError(requestError.message || "Unable to load project");
         }
       } finally {
-        setLoading(false);
+        if (!ignore) {
+          setLoading(false);
+        }
       }
     }
 
     loadProject();
 
-    return () => controller.abort();
+    return () => {
+      ignore = true;
+    };
   }, [projectId]);
 
   return {
-    project,
-    loading,
-    error,
+    project: projectId ? project : null,
+    loading: projectId ? loading : false,
+    error: projectId ? error : "",
   };
 }

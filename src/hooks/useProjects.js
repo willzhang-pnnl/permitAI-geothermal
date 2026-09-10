@@ -1,47 +1,53 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchProjects } from "../api/geothermalApi";
 
-export function useProjects({ search, state }) {
+export function useProjects({
+  search = "",
+  state = "",
+  technology = "",
+  sortBy = "name",
+} = {}) {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const loadProjects = useCallback(
-    async (signal) => {
-      try {
-        setLoading(true);
-        setError("");
+  useEffect(() => {
+    let ignore = false;
 
+    async function loadProjects() {
+      try {
         const data = await fetchProjects({
           search,
           state,
-          signal,
+          technology,
+          sortBy,
         });
 
-        setProjects(data);
+        if (!ignore) {
+          setProjects(data);
+          setError("");
+        }
       } catch (requestError) {
-        if (requestError.name !== "AbortError") {
+        if (!ignore) {
           setError(requestError.message || "Unable to load projects");
         }
       } finally {
-        setLoading(false);
+        if (!ignore) {
+          setLoading(false);
+        }
       }
-    },
-    [search, state]
-  );
+    }
 
-  useEffect(() => {
-    const controller = new AbortController();
+    loadProjects();
 
-    loadProjects(controller.signal);
-
-    return () => controller.abort();
-  }, [loadProjects]);
+    return () => {
+      ignore = true;
+    };
+  }, [search, state, technology, sortBy]);
 
   return {
     projects,
     loading,
     error,
-    reload: () => loadProjects(),
   };
 }

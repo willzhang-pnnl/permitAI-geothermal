@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "cc337cda-ed00-492f-84f3-ba85342b1837",
+  "project_id": "e9cee2f6-6ee7-5741-a69e-dc09778e7b01",
   "project_name": "Puna Renewable Energy Project",
   "project_description": "Example geothermal development project located in Hawaii County, Hawaii. This file is intended for frontend testing.",
   "project_sponsor": "Puna Renewable Energy Project Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "e94d5726-d93c-46b5-bcd5-dc3683d4e600",
+      "facility_id": "bee372c4-e56c-5d68-ba17-64512f560c07",
       "facility_name": "Puna Renewable Energy Project Unit 1",
       "latitude": 41.615,
       "longitude": -109.615,
@@ -32,7 +32,7 @@
       "technology_type": "Dry Steam"
     },
     {
-      "facility_id": "d583b6ae-0ef2-4087-b5fd-588b880b7495",
+      "facility_id": "3f24a6ed-283d-58a0-9017-abf2afdd320b",
       "facility_name": "Puna Renewable Energy Project Unit 2",
       "latitude": 41.63,
       "longitude": -109.63,

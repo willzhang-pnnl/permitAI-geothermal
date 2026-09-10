@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "584ca2a5-a02d-47f0-82dd-680a140aea1e",
+  "project_id": "704d1910-2e99-56b4-9fce-0c0cc528d986",
   "project_name": "Cascade Heat Project",
   "project_description": "Example geothermal development project located in Klickitat County, Washington. This file is intended for frontend testing.",
   "project_sponsor": "Cascade Heat Project Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "483c5e26-91fd-4af8-be46-19aa94f07d10",
+      "facility_id": "bf7ff643-f618-526f-a168-5183ecdaad96",
       "facility_name": "Cascade Heat Project Unit 1",
       "latitude": 42.715,
       "longitude": -108.215,
@@ -32,7 +32,7 @@
       "technology_type": "Enhanced Geothermal System (EGS)"
     },
     {
-      "facility_id": "99b0d46e-accc-4b9f-8c18-d9b8ed008c24",
+      "facility_id": "d79c4bf8-ff9c-551c-9dac-98d6b1d8b5e2",
       "facility_name": "Cascade Heat Project Unit 2",
       "latitude": 42.730000000000004,
       "longitude": -108.23,

@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "3417b48d-abd5-4ecc-9fd6-5b58800b8991",
+  "project_id": "0c59bee5-b4ea-513a-b795-1d7081905710",
   "project_name": "Rocky Mountain EGS Demonstration",
   "project_description": "Example geothermal development project located in Eagle County, Colorado. This file is intended for frontend testing.",
   "project_sponsor": "Rocky Mountain EGS Demonstration Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "caac7d0e-9bda-4089-8987-92e7549d63fc",
+      "facility_id": "a5f62aed-94f2-5657-b87b-778efc6ec88c",
       "facility_name": "Rocky Mountain EGS Demonstration Unit 1",
       "latitude": 44.915,
       "longitude": -105.415,
@@ -32,7 +32,7 @@
       "technology_type": "Binary Cycle"
     },
     {
-      "facility_id": "5a9d0d59-5b88-478c-be70-7afc0bff1d56",
+      "facility_id": "d76aa240-32c3-5ee9-83d6-76099abdabbe",
       "facility_name": "Rocky Mountain EGS Demonstration Unit 2",
       "latitude": 44.93,
       "longitude": -105.43,

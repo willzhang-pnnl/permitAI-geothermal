@@ -6,9 +6,9 @@ import {
 } from "lucide-react";
 
 import {
-  ACTIVITY_GROUPS,
   getCompletedGroups,
   getFacilities,
+  getProjectActivityGroups,
   getProjectDocuments,
   getTotalCapacity,
 } from "../../utils/projectUtils";
@@ -17,30 +17,31 @@ export default function ProjectStats({ project }) {
   const facilities = getFacilities(project);
   const documents = getProjectDocuments(project);
   const completed = getCompletedGroups(project);
+  const totalGroups = getProjectActivityGroups(project).length;
 
   const stats = [
     {
       label: "Total Capacity",
       value: `${getTotalCapacity(project)} MW`,
-      icon: <Zap size={20} />,
+      icon: <Zap size={20} aria-hidden="true" />,
       color: "blue",
     },
     {
       label: "Facilities",
       value: facilities.length,
-      icon: <Building2 size={20} />,
+      icon: <Building2 size={20} aria-hidden="true" />,
       color: "purple",
     },
     {
       label: "Completed Phases",
-      value: `${completed}/${ACTIVITY_GROUPS.length}`,
-      icon: <CircleCheck size={20} />,
+      value: `${completed}/${totalGroups}`,
+      icon: <CircleCheck size={20} aria-hidden="true" />,
       color: "green",
     },
     {
       label: "Documents",
       value: documents.length,
-      icon: <FileText size={20} />,
+      icon: <FileText size={20} aria-hidden="true" />,
       color: "orange",
     },
   ];

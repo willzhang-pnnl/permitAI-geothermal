@@ -1,6 +1,6 @@
 {
   "schema_version": "0.8",
-  "project_id": "bf702aa7-22aa-4711-9583-c9c441204116",
+  "project_id": "3d269287-40f6-5106-a6a6-1831b51286da",
   "project_name": "Beaver Basin Geothermal",
   "project_description": "Example geothermal development project located in Beaver County, Utah. This file is intended for frontend testing.",
   "project_sponsor": "Beaver Basin Geothermal Energy LLC",
@@ -21,7 +21,7 @@
   ],
   "facilities": [
     {
-      "facility_id": "a0df61ce-758b-4161-aeb7-1c8402236d6c",
+      "facility_id": "760ae644-ffaf-585b-811c-be5148989b1a",
       "facility_name": "Beaver Basin Geothermal Unit 1",
       "latitude": 39.415,
       "longitude": -112.415,
@@ -32,7 +32,7 @@
       "technology_type": "Binary Cycle"
     },
     {
-      "facility_id": "ed30f1e6-fe51-4051-8d87-c4599e1c3f76",
+      "facility_id": "0f520cb9-e969-5ad2-ac20-5f359dc91c16",
       "facility_name": "Beaver Basin Geothermal Unit 2",
       "latitude": 39.43,
       "longitude": -112.43,
