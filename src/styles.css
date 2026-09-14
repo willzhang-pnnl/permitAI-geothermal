@@ -5,6 +5,8 @@
   color: #e9f0f5;
   background: #081217;
   font-synthesis: none;
+  /* Reserve scrollbar space so opening a modal (which locks body scroll) doesn't shift page width */
+  scrollbar-gutter: stable;
 }
 
 * {
@@ -763,13 +765,16 @@ h2 {
   background: #0a171c;
 }
 
-.facility-item-clickable {
+.facility-item-clickable,
+.document-item-clickable {
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .facility-item-clickable:hover,
-.facility-item-clickable:focus-visible {
+.facility-item-clickable:focus-visible,
+.document-item-clickable:hover,
+.document-item-clickable:focus-visible {
   border-color: #54bca5;
   background: #10242a;
   outline: none;

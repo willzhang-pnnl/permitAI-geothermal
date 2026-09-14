@@ -50,17 +50,6 @@ export default function Sidebar({ currentView, onChangeView }) {
           Documents
         </button>
       </nav>
-
-      <div className="sidebar-footer">
-        <div className="system-status">
-          <span className="live-dot" />
-
-          <div>
-            <strong>System online</strong>
-            <small>API connected</small>
-          </div>
-        </div>
-      </div>
     </aside>
   );
 }
