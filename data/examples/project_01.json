@@ -30,17 +30,6 @@
       "start_year": 2011,
       "unit_capacity_mw": 20,
       "technology_type": "Flash Steam"
-    },
-    {
-      "facility_id": "1d30ac23-8336-5bd3-8617-a204ac94ddd9",
-      "facility_name": "Coso Geothermal Field Unit 2",
-      "latitude": 35.03,
-      "longitude": -118.03,
-      "owner": "Coso Geothermal Field Energy LLC",
-      "operator": "Coso Geothermal Field Operations LLC",
-      "start_year": 2012,
-      "unit_capacity_mw": 25,
-      "technology_type": "Dry Steam"
     }
   ],
   "activity_groups": {

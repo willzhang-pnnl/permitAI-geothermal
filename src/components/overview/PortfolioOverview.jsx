@@ -11,6 +11,7 @@ import {
   getProjectProgress,
   getTotalCapacity,
 } from "../../utils/projectUtils";
+import UsProjectsMap from "./UsProjectsMap";
 
 export default function PortfolioOverview({
   projects = [],
@@ -92,6 +93,18 @@ export default function PortfolioOverview({
           </div>
         </div>
       </div>
+
+      {/* Geographic Map */}
+      <section className="panel overview-section map-panel">
+        <div className="panel-heading">
+          <div>
+            <p className="eyebrow">GEOGRAPHIC SPREAD</p>
+            <h2>Project Locations & Capacity</h2>
+          </div>
+          <Globe2 size={20} className="heading-icon" aria-hidden="true" />
+        </div>
+        <UsProjectsMap projects={projects} onSelectProject={onSelectProject} />
+      </section>
 
       {/* Two Column Section: State Distribution & Technology Breakdown */}
       <div className="two-column overview-section">

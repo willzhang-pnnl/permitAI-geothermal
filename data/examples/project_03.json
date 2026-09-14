@@ -30,17 +30,6 @@
       "start_year": 2013,
       "unit_capacity_mw": 26,
       "technology_type": "Enhanced Geothermal System (EGS)"
-    },
-    {
-      "facility_id": "3dcd2171-c592-51ac-a6d8-0916949ab5fb",
-      "facility_name": "Snake River Geothermal Project Unit 2",
-      "latitude": 37.230000000000004,
-      "longitude": -115.23,
-      "owner": "Snake River Geothermal Project Energy LLC",
-      "operator": "Snake River Geothermal Project Operations LLC",
-      "start_year": 2014,
-      "unit_capacity_mw": 31,
-      "technology_type": "Hybrid"
     }
   ],
   "activity_groups": {

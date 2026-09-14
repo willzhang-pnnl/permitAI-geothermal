@@ -30,17 +30,6 @@
       "start_year": 2018,
       "unit_capacity_mw": 41,
       "technology_type": "Enhanced Geothermal System (EGS)"
-    },
-    {
-      "facility_id": "d79c4bf8-ff9c-551c-9dac-98d6b1d8b5e2",
-      "facility_name": "Cascade Heat Project Unit 2",
-      "latitude": 42.730000000000004,
-      "longitude": -108.23,
-      "owner": "Cascade Heat Project Energy LLC",
-      "operator": "Cascade Heat Project Operations LLC",
-      "start_year": 2019,
-      "unit_capacity_mw": 46,
-      "technology_type": "Hybrid"
     }
   ],
   "activity_groups": {

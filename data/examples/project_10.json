@@ -30,17 +30,6 @@
       "start_year": 2020,
       "unit_capacity_mw": 47,
       "technology_type": "Binary Cycle"
-    },
-    {
-      "facility_id": "d76aa240-32c3-5ee9-83d6-76099abdabbe",
-      "facility_name": "Rocky Mountain EGS Demonstration Unit 2",
-      "latitude": 44.93,
-      "longitude": -105.43,
-      "owner": "Rocky Mountain EGS Demonstration Energy LLC",
-      "operator": "Rocky Mountain EGS Demonstration Operations LLC",
-      "start_year": 2021,
-      "unit_capacity_mw": 52,
-      "technology_type": "Flash Steam"
     }
   ],
   "activity_groups": {

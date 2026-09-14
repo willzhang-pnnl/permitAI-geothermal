@@ -30,17 +30,6 @@
       "start_year": 2017,
       "unit_capacity_mw": 38,
       "technology_type": "Dry Steam"
-    },
-    {
-      "facility_id": "3f24a6ed-283d-58a0-9017-abf2afdd320b",
-      "facility_name": "Puna Renewable Energy Project Unit 2",
-      "latitude": 41.63,
-      "longitude": -109.63,
-      "owner": "Puna Renewable Energy Project Energy LLC",
-      "operator": "Puna Renewable Energy Project Operations LLC",
-      "start_year": 2018,
-      "unit_capacity_mw": 43,
-      "technology_type": "Enhanced Geothermal System (EGS)"
     }
   ],
   "activity_groups": {

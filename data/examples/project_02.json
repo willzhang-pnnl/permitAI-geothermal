@@ -30,17 +30,6 @@
       "start_year": 2012,
       "unit_capacity_mw": 23,
       "technology_type": "Dry Steam"
-    },
-    {
-      "facility_id": "6a584d9f-aa1c-5ef7-864c-cb5c91b78096",
-      "facility_name": "Desert Peak Expansion Unit 2",
-      "latitude": 36.13,
-      "longitude": -116.63,
-      "owner": "Desert Peak Expansion Energy LLC",
-      "operator": "Desert Peak Expansion Operations LLC",
-      "start_year": 2013,
-      "unit_capacity_mw": 28,
-      "technology_type": "Enhanced Geothermal System (EGS)"
     }
   ],
   "activity_groups": {

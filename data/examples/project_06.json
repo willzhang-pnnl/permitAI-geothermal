@@ -30,17 +30,6 @@
       "start_year": 2016,
       "unit_capacity_mw": 35,
       "technology_type": "Flash Steam"
-    },
-    {
-      "facility_id": "6caea468-c718-59a0-b6f1-e7234991b74f",
-      "facility_name": "Red Mesa Resource Area Unit 2",
-      "latitude": 40.53,
-      "longitude": -111.03,
-      "owner": "Red Mesa Resource Area Energy LLC",
-      "operator": "Red Mesa Resource Area Operations LLC",
-      "start_year": 2017,
-      "unit_capacity_mw": 40,
-      "technology_type": "Dry Steam"
     }
   ],
   "activity_groups": {

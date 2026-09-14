@@ -30,17 +30,6 @@
       "start_year": 2014,
       "unit_capacity_mw": 29,
       "technology_type": "Hybrid"
-    },
-    {
-      "facility_id": "775c3726-cc78-514f-b796-b045d3bf3685",
-      "facility_name": "Lakeview Binary Plant Unit 2",
-      "latitude": 38.33,
-      "longitude": -113.83,
-      "owner": "Lakeview Binary Plant Energy LLC",
-      "operator": "Lakeview Binary Plant Operations LLC",
-      "start_year": 2015,
-      "unit_capacity_mw": 34,
-      "technology_type": "Binary Cycle"
     }
   ],
   "activity_groups": {

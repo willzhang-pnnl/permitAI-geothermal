@@ -30,17 +30,6 @@
       "start_year": 2019,
       "unit_capacity_mw": 44,
       "technology_type": "Hybrid"
-    },
-    {
-      "facility_id": "4facebda-0972-5ea9-93ed-de94b5ff6452",
-      "facility_name": "San Francisco Volcanic Field Unit 2",
-      "latitude": 43.83,
-      "longitude": -106.83,
-      "owner": "San Francisco Volcanic Field Energy LLC",
-      "operator": "San Francisco Volcanic Field Operations LLC",
-      "start_year": 2020,
-      "unit_capacity_mw": 49,
-      "technology_type": "Binary Cycle"
     }
   ],
   "activity_groups": {

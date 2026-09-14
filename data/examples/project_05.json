@@ -30,17 +30,6 @@
       "start_year": 2015,
       "unit_capacity_mw": 32,
       "technology_type": "Binary Cycle"
-    },
-    {
-      "facility_id": "0f520cb9-e969-5ad2-ac20-5f359dc91c16",
-      "facility_name": "Beaver Basin Geothermal Unit 2",
-      "latitude": 39.43,
-      "longitude": -112.43,
-      "owner": "Beaver Basin Geothermal Energy LLC",
-      "operator": "Beaver Basin Geothermal Operations LLC",
-      "start_year": 2016,
-      "unit_capacity_mw": 37,
-      "technology_type": "Flash Steam"
     }
   ],
   "activity_groups": {
