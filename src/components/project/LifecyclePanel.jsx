@@ -21,7 +21,7 @@ export default function LifecyclePanel({ project }) {
     : null;
 
   return (
-    <section className="panel">
+    <section className="panel panel-stacked">
       <div className="panel-heading">
         <div>
           <p className="eyebrow">PERMITTING LIFECYCLE</p>

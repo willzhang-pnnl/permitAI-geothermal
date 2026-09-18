@@ -18,7 +18,7 @@ export default function DocumentsPanel({ project }) {
   const documents = getProjectDocuments(project);
 
   return (
-    <section className="panel">
+    <section className="panel panel-stacked">
       <div className="panel-heading">
         <div>
           <p className="eyebrow">DOCUMENTATION</p>

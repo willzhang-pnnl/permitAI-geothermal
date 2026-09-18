@@ -85,14 +85,13 @@ export default function ProjectDetail({
       <ProjectStats project={normalizedProject} />
 
       <div className="two-column">
-        <LifecyclePanel project={normalizedProject} />
+        <MetadataPanel project={normalizedProject} />
         <FacilitiesPanel project={normalizedProject} />
       </div>
 
-      <div className="two-column">
-        <DocumentsPanel project={normalizedProject} />
-        <MetadataPanel project={normalizedProject} />
-      </div>
+      <LifecyclePanel project={normalizedProject} />
+
+      <DocumentsPanel project={normalizedProject} />
     </>
   );
 }

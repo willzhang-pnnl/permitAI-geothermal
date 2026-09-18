@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { matchPath, useLocation, useNavigate } from "react-router-dom";
 
 import Sidebar from "./components/layout/Sidebar";
 import Topbar from "./components/layout/Topbar";
@@ -13,13 +14,46 @@ import {
   getUniqueStates,
   getUniqueTechnologies,
 } from "./utils/projectUtils";
+import { testHuggingFaceConnection } from "./api/huggingfaceTest";
 
 import "./styles.css";
 
+const VIEW_PATHS = {
+  overview: "/",
+  projects: "/projects",
+  documents: "/documents",
+};
+
 export default function App() {
-  const [currentView, setCurrentView] = useState("overview");
-  const [previousView, setPreviousView] = useState("overview");
-  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  // Temporary connectivity check - logs to console only, remove once verified.
+  useEffect(() => {
+    testHuggingFaceConnection();
+  }, []);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const projectMatch = matchPath("/project/:projectId", location.pathname);
+  const selectedProjectId = projectMatch?.params.projectId ?? null;
+  const isProjectDetail = Boolean(selectedProjectId);
+
+  const currentView = isProjectDetail
+    ? "project"
+    : Object.keys(VIEW_PATHS).find(
+        (view) => VIEW_PATHS[view] === location.pathname
+      ) || "overview";
+
+  // Where to return to when leaving a project page, tracked via navigation state
+  const previousView = location.state?.fromView || "projects";
+
+  // Redirect unknown paths back to the overview
+  useEffect(() => {
+    const isKnownPath =
+      isProjectDetail || Object.values(VIEW_PATHS).includes(location.pathname);
+    if (!isKnownPath) {
+      navigate("/", { replace: true });
+    }
+  }, [location.pathname, isProjectDetail, navigate]);
 
   // Filter and sort state for project directory
   const [search, setSearch] = useState("");
@@ -64,14 +98,11 @@ export default function App() {
   );
 
   function openProject(projectId) {
-    setPreviousView(currentView === "project" ? "projects" : currentView);
-    setSelectedProjectId(projectId);
-    setCurrentView("project");
+    navigate(`/project/${projectId}`, { state: { fromView: currentView } });
   }
 
   function goBackFromProject() {
-    setSelectedProjectId(null);
-    setCurrentView(previousView || "projects");
+    navigate(VIEW_PATHS[previousView] || VIEW_PATHS.projects);
   }
 
   function resetFilters() {
@@ -82,13 +113,8 @@ export default function App() {
   }
 
   function handleViewChange(view) {
-    setCurrentView(view);
-    if (view !== "project") {
-      setSelectedProjectId(null);
-    }
+    navigate(VIEW_PATHS[view] || VIEW_PATHS.overview);
   }
-
-  const isProjectDetail = currentView === "project";
 
   // Compute dynamic topbar titles
   let topbarTitle = "Portfolio Overview";
