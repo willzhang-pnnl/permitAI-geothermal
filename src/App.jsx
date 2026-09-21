@@ -7,6 +7,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import PortfolioOverview from "./components/overview/PortfolioOverview";
 import DocumentsView from "./components/documents/DocumentsView";
 import ProjectDetail from "./components/project/ProjectDetail";
+import ResourcesView from "./components/resources/ResourcesView";
 
 import { useProjects } from "./hooks/useProjects";
 import { useProject } from "./hooks/useProject";
@@ -22,6 +23,7 @@ const VIEW_PATHS = {
   overview: "/",
   projects: "/projects",
   documents: "/documents",
+  resources: "/resources",
 };
 
 export default function App() {
@@ -126,6 +128,9 @@ export default function App() {
   } else if (currentView === "documents") {
     topbarTitle = "Regulatory Filings";
     topbarSubtitle = "COMPLIANCE & PERMITS";
+  } else if (currentView === "resources") {
+    topbarTitle = "Supporting Resources";
+    topbarSubtitle = "VISUAL REFERENCE LIBRARY";
   } else if (isProjectDetail) {
     topbarTitle = project?.project_name || "Project Details";
     topbarSubtitle = "RESOURCE AREA DOSSIER";
@@ -175,6 +180,8 @@ export default function App() {
             onSelectProject={openProject}
           />
         )}
+
+        {currentView === "resources" && <ResourcesView />}
 
         {isProjectDetail && (
           <ProjectDetail

@@ -2,6 +2,7 @@ import {
   BarChart3,
   FileText,
   FolderOpen,
+  Images,
   Waves,
 } from "lucide-react";
 
@@ -48,6 +49,16 @@ export default function Sidebar({ currentView, onChangeView }) {
         >
           <FileText size={18} />
           Documents
+        </button>
+
+        <button
+          className={`nav-item ${
+            currentView === "resources" ? "active" : ""
+          }`}
+          onClick={() => onChangeView("resources")}
+        >
+          <Images size={18} />
+          Resources
         </button>
       </nav>
     </aside>

@@ -12,7 +12,7 @@ export default function Modal({
   eyebrow,
   children,
   badge,
-  maxWidth = "560px",
+  maxWidth = "760px",
 }) {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Activity, FileText } from "lucide-react";
+import { Activity, ChevronDown, FileText } from "lucide-react";
 import {
   getActivityGroup,
   getProjectActivityGroups,
@@ -9,16 +9,22 @@ import StatusPill from "../common/StatusPill";
 import Modal from "../common/Modal";
 
 export default function LifecyclePanel({ project }) {
-  const [activeGroup, setActiveGroup] = useState(null);
+  const [expandedGroups, setExpandedGroups] = useState(() => new Set());
+  const [activeActivity, setActiveActivity] = useState(null);
 
   const groups = getProjectActivityGroups(project);
-  const activeGroupData = activeGroup
-    ? getActivityGroup(project, activeGroup.key)
-    : null;
-  const activeActivities = activeGroupData?.activities || [];
-  const activeStatus = activeGroupData
-    ? activeGroupData.process_status || "not started"
-    : null;
+
+  function toggleGroup(groupKey) {
+    setExpandedGroups((currentGroups) => {
+      const nextGroups = new Set(currentGroups);
+      if (nextGroups.has(groupKey)) {
+        nextGroups.delete(groupKey);
+      } else {
+        nextGroups.add(groupKey);
+      }
+      return nextGroups;
+    });
+  }
 
   return (
     <section className="panel panel-stacked">
@@ -32,56 +38,67 @@ export default function LifecyclePanel({ project }) {
       </div>
 
       <div className="lifecycle-list">
-        {groups.map((group, index) => {
+        {groups.map((group) => {
           const status = getStatus(project, group.key);
           const groupData = getActivityGroup(project, group.key);
           const activities = groupData.activities || [];
-          const clickable = activities.length > 0;
+          const isExpanded = expandedGroups.has(group.key);
 
           return (
-            <div
-              className={`lifecycle-row ${clickable ? "lifecycle-row-clickable" : ""}`}
-              key={group.key}
-              role={clickable ? "button" : undefined}
-              tabIndex={clickable ? 0 : undefined}
-              onClick={clickable ? () => setActiveGroup(group) : undefined}
-              onKeyDown={
-                clickable
-                  ? (event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        setActiveGroup(group);
-                      }
-                    }
-                  : undefined
-              }
-              aria-label={
-                clickable
-                  ? `View activities for ${group.label}`
-                  : undefined
-              }
-            >
-              <div className={`timeline-dot ${status}`}>
-                <span />
-              </div>
-
-              <div className="lifecycle-content">
-                <div className="lifecycle-title">
-                  <strong>{group.label}</strong>
-                  <StatusPill status={status} />
+            <div className="lifecycle-phase" key={group.key}>
+              <button
+                type="button"
+                className="lifecycle-row lifecycle-row-clickable"
+                onClick={() => toggleGroup(group.key)}
+                aria-expanded={isExpanded}
+                aria-controls={`activities-${group.key}`}
+              >
+                <div className={`timeline-dot ${status}`}>
+                  <span />
                 </div>
 
-                <div className="lifecycle-meta">
-                  {activities.length > 0
-                    ? `${activities.length} activit${
-                        activities.length === 1 ? "y" : "ies"
-                      }`
-                    : "No activities recorded"}
-                </div>
-              </div>
+                <div className="lifecycle-content">
+                  <div className="lifecycle-title">
+                    <strong>{group.label}</strong>
+                    <StatusPill status={status} />
+                  </div>
 
-              {index < groups.length - 1 && (
-                <div className="timeline-line" />
+                  <div className="lifecycle-meta">
+                    {activities.length > 0
+                      ? `${activities.length} activit${
+                          activities.length === 1 ? "y" : "ies"
+                        }`
+                      : "No activities recorded"}
+                  </div>
+                </div>
+
+                <ChevronDown
+                  className={`lifecycle-chevron ${isExpanded ? "expanded" : ""}`}
+                  size={18}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {isExpanded && (
+                <div className="lifecycle-activities" id={`activities-${group.key}`}>
+                  {activities.length === 0 ? (
+                    <p className="muted">No activities recorded for this phase.</p>
+                  ) : (
+                    activities.map((activity, activityIndex) => (
+                      <button
+                        type="button"
+                        className="lifecycle-activity"
+                        key={activity.row_number ?? activityIndex}
+                        onClick={() =>
+                          setActiveActivity({ activity, group, status })
+                        }
+                      >
+                        <strong>{activity.activity_type || "Untitled activity"}</strong>
+                        <span>{activity.level || "Level unspecified"}</span>
+                      </button>
+                    ))
+                  )}
+                </div>
               )}
             </div>
           );
@@ -89,52 +106,49 @@ export default function LifecyclePanel({ project }) {
       </div>
 
       <Modal
-        isOpen={Boolean(activeGroup)}
-        onClose={() => setActiveGroup(null)}
-        title="Activities"
-        eyebrow={activeGroup?.label}
-        badge={<StatusPill status={activeStatus} />}
+        isOpen={Boolean(activeActivity)}
+        onClose={() => setActiveActivity(null)}
+        title={activeActivity?.activity.activity_type || "Activity metadata"}
+        eyebrow={activeActivity?.group.label}
+        badge={
+          activeActivity ? <StatusPill status={activeActivity.status} /> : null
+        }
       >
-        <div className="activity-list">
-          {activeActivities.length === 0 ? (
-            <p className="muted">No detailed activities recorded for this phase.</p>
-          ) : (
-            activeActivities.map((activity, index) => (
-              <div className="activity-item" key={index}>
-                <div className="activity-item-heading">
-                  <strong>
-                    {activity.activity_type || "Untitled activity"}
-                  </strong>
-                </div>
+        {activeActivity && (
+          <div className="activity-item">
+            <div className="activity-item-meta activity-metadata-grid">
+              <span>Level: {activeActivity.activity.level || "Unspecified"}</span>
+              <span>
+                Phase: {activeActivity.activity.process_map_phase || "Unspecified"}
+              </span>
+              <span>
+                Activity group: {activeActivity.activity.activity_group || "Unspecified"}
+              </span>
+              <span>
+                Row number: {activeActivity.activity.row_number ?? "Unspecified"}
+              </span>
+            </div>
 
-                <div className="activity-item-meta">
-                  <span>Level: {activity.level || "Unspecified"}</span>
-                  <span>
-                    Phase: {activity.process_map_phase || "Unspecified"}
-                  </span>
-                </div>
+            {activeActivity.activity.summary && (
+              <p className="activity-item-summary">
+                {activeActivity.activity.summary}
+              </p>
+            )}
 
-                {activity.summary && (
-                  <p className="activity-item-summary">
-                    {activity.summary}
-                  </p>
-                )}
-
-                {activity.document_availability_flag &&
-                  activity.document && (
-                    <div className="activity-item-document">
-                      <FileText size={15} aria-hidden="true" />
-                      <span>
-                        {activity.document.document_title ||
-                          "Untitled document"}{" "}
-                        · {activity.document.document_type || "Other"}
-                      </span>
-                    </div>
-                  )}
-              </div>
-            ))
-          )}
-        </div>
+            <div className="activity-item-document">
+              <FileText size={15} aria-hidden="true" />
+              <span>
+                {activeActivity.activity.document_availability_flag
+                  ? activeActivity.activity.document?.document_title ||
+                    "Document available"
+                  : "No document available"}
+                {activeActivity.activity.document?.document_type
+                  ? ` · ${activeActivity.activity.document.document_type}`
+                  : ""}
+              </span>
+            </div>
+          </div>
+        )}
       </Modal>
     </section>
   );
