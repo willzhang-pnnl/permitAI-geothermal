@@ -3,10 +3,19 @@ import {
   FileText,
   FolderOpen,
   Images,
+  Moon,
+  Sun,
   Waves,
 } from "lucide-react";
 
-export default function Sidebar({ currentView, onChangeView }) {
+export default function Sidebar({
+  currentView,
+  onChangeView,
+  theme,
+  onToggleTheme,
+}) {
+  const isDark = theme === "dark";
+
   return (
     <aside className="sidebar">
       <div className="brand">
@@ -61,6 +70,24 @@ export default function Sidebar({ currentView, onChangeView }) {
           Resources
         </button>
       </nav>
+
+      <div className="sidebar-actions">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-pressed={!isDark}
+          aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+          title={`Switch to ${isDark ? "light" : "dark"} mode`}
+        >
+          {isDark ? (
+            <Sun size={18} aria-hidden="true" />
+          ) : (
+            <Moon size={18} aria-hidden="true" />
+          )}
+          <span>{isDark ? "Light mode" : "Dark mode"}</span>
+        </button>
+      </div>
     </aside>
   );
 }

@@ -27,6 +27,22 @@ const VIEW_PATHS = {
 };
 
 export default function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("geopermit-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      return savedTheme;
+    }
+    return window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("geopermit-theme", theme);
+  }, [theme]);
+
   // Temporary connectivity check - logs to console only, remove once verified.
   useEffect(() => {
     testHuggingFaceConnection();
@@ -141,6 +157,12 @@ export default function App() {
       <Sidebar
         currentView={isProjectDetail ? previousView : currentView}
         onChangeView={handleViewChange}
+        theme={theme}
+        onToggleTheme={() =>
+          setTheme((currentTheme) =>
+            currentTheme === "dark" ? "light" : "dark"
+          )
+        }
       />
 
       <main className="main-content">
